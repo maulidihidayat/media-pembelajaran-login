@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Media Pembelajaran</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      width: 350px;
+      padding: 25px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .inputtext {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+    .tombol {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #3498db;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .tombol:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="nama" placeholder="Nama Lengkap" class="inputtext">
+    <input type="text" id="kelas" placeholder="Kelas" class="inputtext">
+    <button class="tombol" onclick="doLogin()">Masuk</button>
+  </div>
+
+  <script>
+    function doLogin() {
+      var nama = document.getElementById("nama").value.trim();
+      var kelas = document.getElementById("kelas").value.trim();
+
+      if (!nama || !kelas) {
+        alert("Nama dan kelas tidak boleh kosong!");
+        return;
+      }
+
+      // Simpan data ke localStorage
+      localStorage.setItem("mp_nama", nama);
+      localStorage.setItem("mp_kelas", kelas);
+
+      // Redirect otomatis ke Google Sites (gunakan link publish, bukan edit!)
+      window.location.href = "https://sites.google.com/view/sma-nw/menu-utama";
+    }
+  </script>
+</body>
+</html>
